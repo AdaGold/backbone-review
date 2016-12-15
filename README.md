@@ -72,27 +72,30 @@ Go through the Trek application and list out each individual component. Use the 
 ***
 
 ## 2) How we have structured our Backbone applications
-The point of backbone is to provide a very intentional structure to our front-end code, so that we know where to find the code that is handling the specific functionality of our application.
+The point of Backbone is to provide a very intentional structure to our front-end code, so that we know where to find the code that is handling the specific functionality of our application.
 
-With Backbone being a less opinionated library/framework, it also has less rules and conventions on
+With Backbone being a less opinionated library/framework, it also has less rules and conventions on how to organize your application and where you implement specific functionality.  We've structured our App as follows.  
 
 
 ### App.js
-
+App.js is our starting file for execution.  It creates the models & our ApplicationView to start the page.  
 
 ### Views
-- **application_view** was the most arbitrary. Why is it there?
-- **contact_view**
-- **rolodex_view**
+- **ApplicationView** was the most arbitrary. Why is it there?
+  - The ApplicationView controls the whole viewport and handles the form for creating new trips.
+- **TripListView** 
+  - The TripListView manages the list of trips and listens for events on the collection and when individual trips are selected.  When they are it shows the individual trip's details.  
+- **TripView**
+  - A TripView renders one trip Model using an underscore template.  
 
 
 ### Models
 
-Right now our models have done very little. We have used them to set defaults.
+Right now our models & collections have done very little. We have used them to set defaults.
 
-Then can also...
+Then can also connect to APIs CRUD operations, provide business logic and let Views know when the data has changed with Events.  
 
-We will utilize them a lot more with Tic-Tac-Toe, and that lesson will come on Monday.
+We will utilize them a lot more with Tic-Tac-Toe, and that lesson will come on Monday.  Yippie!
 
 ### Collections
 
@@ -184,7 +187,7 @@ Now look at the event handler functions, do they invoke other events or function
 
 ### Backbone Events
 
-Look at the listenTo calls in the initialize functions.  Are any of the views listening to events on other objects, such as Models, Collections or Views?
+Look at the `listenTo()` calls in the initialize functions.  Are any of the views listening to events on other objects, such as Models, Collections or Views?
 
 Diagram those events as well.
 
